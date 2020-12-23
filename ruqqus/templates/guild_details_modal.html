@@ -33,7 +33,7 @@
           <div class="font-weight-bold text-small text-uppercase text-muted mb-1" style="letter-spacing: 0.025rem;">Members</div>
           <div>{{ board.subscriber_count }}</div>
         </div>
-
+    
       {% if v %}
       <div id="button-sub-modal" {% if board.has_subscriber(v) %}class="d-none"{% endif %}><a class="btn btn-primary" href="javascript:void(0)" onclick="post('/api/subscribe/{{ board.name }}', callback=toggleSub)">Join guild</a></div>
       <div id="button-unsub-modal" {% if not board.has_subscriber(v) %}class="d-none"{% endif %}><a class="btn btn-secondary" href="javascript:void(0)" onclick="post('/api/unsubscribe/{{ board.name }}', callback=toggleSub)">Leave</a></div>
@@ -49,7 +49,14 @@
         {{ board.description_html | safe }}
 
       </div>
-
+      <div class="p-3">
+        
+        <div class="h6">Mod Log</div>
+        
+        <a href="https://ruqqus.com/{{ board.name }}/mod/log">Moderation Log</a>
+        
+      </div>
+      </div>
 <!-- hide rules thingy
       <div class="p-3">
 
